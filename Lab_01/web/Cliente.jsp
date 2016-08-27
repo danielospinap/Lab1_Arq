@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>|
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes</title>
@@ -21,7 +21,7 @@
                     </tr>
                     <tr>
                         <th> Apellidos</th>
-                        <th><input type="text" name="apellido" class="form-control" placeholder="Apellidos" required="false" value="${cliente.getApellidos()}"/> </th>
+                        <th><input type="text" name="apellido" class="form-control" placeholder="Apellidos" required="false" value="${cliente.getApellido()}"/> </th>
                     </tr>
                     <tr>
                         <th> Correo electronico</th>
@@ -60,6 +60,7 @@
                 <th>Apellido</th>
                 <th>Correo</th>
                 <th>Telefono</th>
+                <th>Direccion</th>
                 <c:forEach items="${allClientes}" var="cliente">
                     <tr>
                         <td>${cliente.getClienteid()}</td>
