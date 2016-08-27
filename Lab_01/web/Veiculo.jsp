@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Agregar nuevo vehiculo</h1>
-        <form action="./VeiculoServlet" method="POST">
+        <form action="./VehiculoServlet" method="POST">
             <table>
                 <tr>
                     <th>Matricula</th>
