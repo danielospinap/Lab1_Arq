@@ -5,7 +5,7 @@
  */
 package com.Lab_01.DAO;
 
-import com.Lab_01.controller.Venta;
+import com.Lab_01.modelo.Venta;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +27,11 @@ public class VentaFacade extends AbstractFacade<Venta> implements VentaFacadeLoc
 
     public VentaFacade() {
         super(Venta.class);
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

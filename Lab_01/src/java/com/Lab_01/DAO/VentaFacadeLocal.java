@@ -5,7 +5,7 @@
  */
 package com.Lab_01.DAO;
 
-import com.Lab_01.controller.Venta;
+import com.Lab_01.modelo.Venta;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,4 +30,6 @@ public interface VentaFacadeLocal {
 
     int count();
     
+    //metodo para ver si compila
+    void clear();
 }

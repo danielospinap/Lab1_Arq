@@ -5,7 +5,7 @@
  */
 package com.Lab_01.DAO;
 
-import com.Lab_01.controller.Autos;
+import com.Lab_01.modelo.Autos;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +27,11 @@ public class AutosFacade extends AbstractFacade<Autos> implements AutosFacadeLoc
 
     public AutosFacade() {
         super(Autos.class);
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

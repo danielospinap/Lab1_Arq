@@ -5,7 +5,7 @@
  */
 package com.Lab_01.DAO;
 
-import com.Lab_01.controller.Usuarios;
+import com.Lab_01.modelo.Usuarios;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +29,8 @@ public interface UsuariosFacadeLocal {
     List<Usuarios> findRange(int[] range);
 
     int count();
+    
+    //metodo para ver si compila
+    void clear();
     
 }

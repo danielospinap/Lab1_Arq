@@ -3,7 +3,6 @@
   <persistence-unit name="Lab_01PU" transaction-type="JTA">
     <jta-data-source>java:app/jdbc/Lab_01</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-    </properties>
+    <properties/>
   </persistence-unit>
 </persistence>

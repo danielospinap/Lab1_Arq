@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Lab_01.controller;
+package com.Lab_01.modelo;
 
 import java.io.Serializable;
 import javax.persistence.EmbeddedId;
