@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Agregar nuevo vehiculo</h1>
-        <form action="./VehiculoServlet" method="POST">
+        <form enctype="multipart/form-data" action="./VehiculoServlet" method="POST">
             <table>
                 <tr>
                     <th>Matricula</th>

@@ -65,7 +65,7 @@ public class VehiculoServlet extends HttpServlet {
             Part _foto = request.getPart("imagen");
 
             // Verify _foto is not null
-            if (_foto.getSize() != 0) {
+            if (_foto != null && _foto.getSize() != 0) {
                 // Read bytes from _foto
                 try (InputStream is = _foto.getInputStream()) {
                     foto = new byte[is.available()];
@@ -80,7 +80,6 @@ public class VehiculoServlet extends HttpServlet {
 
             if ("Agregar".equalsIgnoreCase(action)) {
                 autosFacade.create(auto);
-                autosFacade.clear();
 
             } else if ("Editar".equalsIgnoreCase(action)) {
                 autosFacade.edit(auto);
