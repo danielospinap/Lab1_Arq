@@ -58,10 +58,15 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
-    public Usuarios(Integer clienteid) {
+    public Usuarios(Integer clienteid, String nombre, String apellido, String correo, Integer telefono, String direccion) {
         this.clienteid = clienteid;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.direccion = direccion;
     }
-
+    
     public Integer getClienteid() {
         return clienteid;
     }

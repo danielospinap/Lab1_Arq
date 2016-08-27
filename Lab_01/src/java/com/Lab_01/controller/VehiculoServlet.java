@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +22,12 @@ import javax.servlet.http.Part;
  *
  * @author Mario
  */
+@MultipartConfig(fileSizeThreshold=1024*1024*10,    // 10 MB 
+                 maxFileSize=1024*1024*50,          // 50 MB
+                 maxRequestSize=1024*1024*100,      // 100 MB
+                 location="/")
 public class VehiculoServlet extends HttpServlet {
-    
+
     @EJB
     private AutosFacadeLocal autosFacade;
 
@@ -38,7 +43,7 @@ public class VehiculoServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         byte[] foto = null;
         Autos auto = null;
         String action = request.getParameter("action");
@@ -46,7 +51,7 @@ public class VehiculoServlet extends HttpServlet {
         int matricula = 0;
         if (matriculaStr != null && !matriculaStr.equals("")) {
             matricula = Integer.parseInt(matriculaStr);
-        }        
+        }
         String name = request.getParameter("nombre");
         String modelo = request.getParameter("modelo");
         String color = request.getParameter("color");
@@ -55,7 +60,7 @@ public class VehiculoServlet extends HttpServlet {
         if (costoStr != null && !costoStr.equals("")) {
             costo = Integer.parseInt(costoStr);
         }
-        
+
         if (request.getMethod().equals("POST")) {
             Part _foto = request.getPart("imagen");
 
@@ -90,7 +95,7 @@ public class VehiculoServlet extends HttpServlet {
         request.setAttribute("auto", auto);
         request.setAttribute("allAutos", autosFacade.findAll());
         request.getRequestDispatcher("Veiculo.jsp").forward(request, response);
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

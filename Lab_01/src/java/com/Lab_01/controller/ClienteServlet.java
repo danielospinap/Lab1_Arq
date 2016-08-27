@@ -48,10 +48,14 @@ public class ClienteServlet extends HttpServlet {
         String name = request.getParameter("Nombre");
         String apellido = request.getParameter("Apellidos");
         String correoElectronico = request.getParameter("Correo electronico");
-        String telefono = request.getParameter("Telefono");
+        String telefonoStr = request.getParameter("Telefono");
+        int telefono = 0;
+        if (telefonoStr != null && !telefonoStr.equals("")) {
+            telefono = Integer.parseInt(telefonoStr);
+        }
         String direccion = request.getParameter("Direccion");
 
-        usuario = new Usuarios(clienteId);
+        usuario = new Usuarios(clienteId, name, apellido, correoElectronico, telefono, direccion);
         if ("Agregar".equalsIgnoreCase(action)) {
             usuariosFacade.create(usuario);
             //usuariosFacade.clear();
