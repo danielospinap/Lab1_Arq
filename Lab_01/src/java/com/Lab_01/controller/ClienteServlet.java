@@ -45,15 +45,15 @@ public class ClienteServlet extends HttpServlet {
             clienteId = Integer.parseInt(clienteIdStr);
         }
         String action = request.getParameter("action");
-        String name = request.getParameter("Nombre");
-        String apellido = request.getParameter("Apellidos");
-        String correoElectronico = request.getParameter("Correo electronico");
-        String telefonoStr = request.getParameter("Telefono");
+        String name = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String correoElectronico = request.getParameter("correo");
+        String telefonoStr = request.getParameter("telefono");
         int telefono = 0;
         if (telefonoStr != null && !telefonoStr.equals("")) {
             telefono = Integer.parseInt(telefonoStr);
         }
-        String direccion = request.getParameter("Direccion");
+        String direccion = request.getParameter("direccion");
 
         usuario = new Usuarios(clienteId, name, apellido, correoElectronico, telefono, direccion);
         if ("Agregar".equalsIgnoreCase(action)) {

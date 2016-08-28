@@ -5,7 +5,12 @@
  */
 package com.Lab_01.modelo;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.URLConnection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +20,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.DatatypeConverter;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -49,12 +55,27 @@ public class Autos implements Serializable {
     private String color;
     @Column(name = "costo")
     private Integer costo;
+    @Column
+    private byte[] foto;
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public Autos() {
     }
 
-    public Autos(Integer matricula) {
+    public Autos(Integer matricula, String nombre, Integer modelo, String color, Integer costo, byte[] foto) {
         this.matricula = matricula;
+        this.nombre = nombre;
+        this.modelo = modelo;
+        this.color = color;
+        this.costo = costo;
+        this.foto = foto;
     }
 
     public Integer getMatricula() {
@@ -97,6 +118,19 @@ public class Autos implements Serializable {
         this.costo = costo;
     }
 
+    public String getFotoBase64() throws IOException {
+        String mimeType = "";
+        try (InputStream is = new BufferedInputStream(new ByteArrayInputStream(foto))) {
+            mimeType = URLConnection.guessContentTypeFromStream(is);
+        } catch(NullPointerException e){
+            return null;
+        }
+        
+        String base64 = DatatypeConverter.printBase64Binary(foto);
+        System.out.println("data:" + mimeType + ";base64," + base64);
+        return "data:" + mimeType + ";base64," + base64;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -121,5 +155,5 @@ public class Autos implements Serializable {
     public String toString() {
         return "com.Lab_01.controller.Autos[ matricula=" + matricula + " ]";
     }
-    
+
 }

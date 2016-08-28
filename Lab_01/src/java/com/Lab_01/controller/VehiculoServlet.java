@@ -53,7 +53,11 @@ public class VehiculoServlet extends HttpServlet {
             matricula = Integer.parseInt(matriculaStr);
         }
         String name = request.getParameter("nombre");
-        String modelo = request.getParameter("modelo");
+        String modeloStr = request.getParameter("modelo");
+        int modelo = 0;
+        if (modeloStr != null && !modeloStr.equals("")) {
+            modelo = Integer.parseInt(modeloStr);
+        }
         String color = request.getParameter("color");
         String costoStr = request.getParameter("costo");
         int costo = 0;
@@ -72,10 +76,10 @@ public class VehiculoServlet extends HttpServlet {
                     is.read(foto);
                     is.close();
                 }
-                auto = new Autos(matricula);
+                auto = new Autos(matricula, name, modelo, color, costo, foto);
             } else {
                 foto = null;
-                auto = new Autos(matricula);
+                auto = new Autos(matricula, name, modelo, color, costo, foto);
             }
 
             if ("Agregar".equalsIgnoreCase(action)) {
@@ -91,8 +95,8 @@ public class VehiculoServlet extends HttpServlet {
                 auto = autosFacade.find(auto);
             }
         }
-        request.setAttribute("auto", auto);
-        request.setAttribute("allAutos", autosFacade.findAll());
+        request.setAttribute("vehiculo", auto);
+        request.setAttribute("allVehiculos", autosFacade.findAll());
         request.getRequestDispatcher("Veiculo.jsp").forward(request, response);
 
     }

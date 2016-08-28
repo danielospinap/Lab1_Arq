@@ -65,7 +65,7 @@
                     <tr>
                         <td>${cliente.getClienteid()}</td>
                         <td>${cliente.getNombre()}</td>
-                        <td>$cliente.getApellido()}</td>
+                        <td>${cliente.getApellido()}</td>
                         <td>${cliente.getCorreo()}</td>
                         <td>${cliente.getTelefono()}</td>
                         <td>${cliente.getDireccion()}</td>

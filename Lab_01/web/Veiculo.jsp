@@ -18,23 +18,23 @@
             <table>
                 <tr>
                     <th>Matricula</th>
-                    <th><input type="text" class="form-control" placeholder="Matricula" required="true" name="Matricula" value="${veiculo.getMatricula()}"/> </th>
+                    <th><input type="text" class="form-control" placeholder="Matricula" required="true" name="Matricula" value="${vehiculo.getMatricula()}"/> </th>
                 </tr>
                 <tr>
                     <th> Nombre</th>
-                    <th> <input type="text" name="nombre" class="form-control" placeholder="Nombre" required="false" value="${veiculo.getNombre()}"/></th>
+                    <th> <input type="text" name="nombre" class="form-control" placeholder="Nombre" required="false" value="${vehiculo.getNombre()}"/></th>
                 </tr>
                 <tr>
                     <th> Modelo</th>
-                    <th><input type="text" name="modelo" class="form-control" placeholder="Modelo" required="false" value="${veiculo.getModelo()}"/> </th>
+                    <th><input type="text" name="modelo" class="form-control" placeholder="Modelo" required="false" value="${vehiculo.getModelo()}"/> </th>
                 </tr>
                 <tr>
                     <th> Color</th>
-                    <th> <input type="text" name="color" class="form-control" placeholder="Color" required="false" value="${veiculo.getColor()}"/></th>
+                    <th> <input type="text" name="color" class="form-control" placeholder="Color" required="false" value="${vehiculo.getColor()}"/></th>
                 </tr>
                 <tr>
                     <th> Costo</th>
-                    <th> <input type="text" name="costo" class="form-control" placeholder="Costo" required="false" value="${veiculo.getCosto()}"/></th>
+                    <th> <input type="text" name="costo" class="form-control" placeholder="Costo" required="false" value="${vehiculo.getCosto()}"/></th>
                 </tr>
                 <div class="break"></div>
                 </div>
@@ -68,15 +68,16 @@
                 <th>Foto</td>
                 <th>Descripcion</td>
             </tr>
-            <c:forEach items="${allVeiculos}" var="veiculo">
+            <c:forEach items="${allVehiculos}" var="vehiculo">
                 <tr>
-                    <td> <img src="${veiculo.getImagen()}"/></td>
-                    <td><br> Nombre: ${veiculo.getNombre()}
-                        <br> Modelo: ${veiculo.getModelo()}
-                        <br> Color:  ${veiculo.getColor()}
-                        <br> Costo: ${veiculo.getCosto()}
+                    <td> <img src="${vehiculo.getFotoBase64()}"/></td>
+                    <td><br> Nombre: ${vehiculo.getNombre()}
+                        <br> Modelo: ${vehiculo.getModelo()}
+                        <br> Color:  ${vehiculo.getColor()}
+                        <br> Costo: ${vehiculo.getCosto()}
                     </td>
-                </tr> </c:forEach>
+                </tr>
+            </c:forEach>
         </table>
         <a href="Principal.jsp">Inicio</a>
     </body>
